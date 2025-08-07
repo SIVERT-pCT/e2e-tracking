@@ -5,11 +5,11 @@
 
 The repository contains the [PyTorch](https://pytorch.org/) code for "Exploring End-to-end Differentiable Neural Charged Particle Tracking -- A Loss Landscape Perspective". The basic code structure and multiple code modules are taken from [1]. The source code for calculating hessian eigenvalues and eigenvectors is adapted from the PyHESSIAN library [3, 4]. The baseline results for the track follower are generated using the Digital Tracking Calorimeter Toolkit [2]
 
-> Measurement and analysis of high energetic particles for scientific, medical or industrial applications is a complex procedure, requiring the design of sophisticated detector and data processing systems. The development of adaptive and differentiable software pipelines using a combination of traditional and machine learning algorithms is therefore getting increasingly more important to optimize and operate the system efficiently while maintaining end-to-end~(E2E) differentiability. We propose for the application of charged particle tracking an E2E differentiable decision-focused learning scheme using graph neural networks with combinatorial components solving a linear assignment problem for each detector layer. We demonstrate empirically that including differentiable variations of discrete assignment operations allows for efficient network optimization, working better or on par with approaches that lack E2E differentiability. In additional studies, we dive deeper into the optimization process and provide further insights into two-step and end-to-end schemes from a loss landscape perspective. We demonstrate that while two-step and end-to-end methods converges into similar performing, globally well-connected regions, both suffer under substantial predictive instability across random initialization and optimization methods, which can have unpredictable consequences on the performance of downstream tasks such as image reconstruction. We also point out a dependency between the interpolation factor of the blackbox gradient estimator used and the prediction stability of the model, suggesting the choice of sufficiently small values. Given the strong global connectivity of learned solutions and the excellent training performance, we argue that E2E differentiability provides, besides the general availability of gradient information, an important tool for robust charged particle tracking to incorporate additional functional requirements that allow to mitigate prediction instabilities by favoring solutions that perform well on downstream tasks.
+> Measurement and analysis of high energetic particles for scientific, medical or industrial applications is a complex procedure, requiring the design of sophisticated detector and data processing systems. The development of adaptive and differentiable software pipelines using a combination of conventional and machine learning algorithms is therefore getting ever more important to optimize and operate the system efficiently while maintaining end-to-end (E2E) differentiability. In this work, we lay the groundwork for E2E differentiable decision focused learning for the application of charged particle tracking using graph neural networks with combinatorial components, solving a linear assignment problem for each detector layer. We demonstrate empirically that including differentiable variations of discrete assignment operations allows for efficient network optimization, working better or on par with approaches that lack E2E differentiability. In additional studies, we dive deeper into the optimization process and provide further insights from a loss landscape perspective, providing a robust foundation for future work. We demonstrate that while both methods converge into similar performing, globally well-connected regions, they suffer under substantial predictive instability across initialization and optimization methods, which can have unpredictable consequences on the performance of downstream tasks such as image reconstruction. We also point out a dependency between the interpolation factor of the gradient estimator and the prediction stability of the model, suggesting the choice of sufficiently small values. Given the strong global connectivity of learned solutions and the excellent training performance, we argue that E2E differentiability provides, besides the general availability of gradient information, an important tool for robust particle tracking to mitigate prediction instabilities by favoring solutions that perform well on downstream tasks.
 
 <!--TODO: UPDATE BADGES-->
 <a href="https://sivert.info"><img src="https://img.shields.io/website?style=flat-square&logo=appveyor?down_color=lightgrey&down_message=offline&label=Project%20Page&up_color=lightgreen&up_message=sivert.info&url=https://sivert.info" height=22.5></a>
-
+<a href="https://openreview.net/forum?id=1Pi2GwduEz"><img src="https://img.shields.io/website?style=flat-square&logo=appveyor?down_color=8c1b13&down_message=offline&label=Open%20Review&up_color=8c1b13&up_message=1Pi2GwduEz&url=https://openreview.net/forum?id=1Pi2GwduEz" height=22.5></a>
 
 ![img](figures/tracks.png)
 
@@ -73,12 +73,31 @@ python reporting/generate_mode_connectivity_results.py # Table 2 & 3
 ```
 
 ```powershell
-python reporting/generate_performance_results.py # Results for Table 1 & Figure 4
+python reporting/generate_performance_results.py #  Table 1 & Figure 4
 ```
 
 ```powershell
 python reporting/generate_similarity_plots.py #Figure 7
 ```
+
+```powershell
+python reporting/performance_hit_graph.py #Figure 5 & Table 6
+```
+
+```powershell
+python reporting/graph_size_ablation.py #Table 5
+```
+
+
+```powershell
+python reporting/inference_speed_flops_ablation.py #Figure 11
+```
+
+
+```powershell
+python reporting/inference_speed_ablation.py #Figure 12
+```
+
 
 
 ## Referencing this Work
@@ -86,7 +105,14 @@ python reporting/generate_similarity_plots.py #Figure 7
 If you find this repository useful for your research, please cite the following work.
 
 ```
-TODO
+@article{kortus2025exploring,
+    title={Exploring End-to-end Differentiable Neural Charged Particle Tracking {\textendash} A Loss Landscape Perspective},
+    author={Tobias Kortus and Ralf Keidel and Nicolas R. Gauger},
+    journal={Transactions on Machine Learning Research},
+    issn={2835-8856},
+    year={2025},
+    url={https://openreview.net/forum?id=1Pi2GwduEz},
+}
 ```
 
 ## References
