@@ -1,0 +1,1 @@
+This source code is an adapted version of the PyHessian library developed by Z. Yao, A. Gholami, K Keutzer, M. Mahoney (https://github.com/amirgholami/PyHessian)

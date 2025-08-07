@@ -1,0 +1,1 @@
+This source code is an adapted version of the Mode Connectivity and Fast Geometric Ensembling repository developed by Timur Garipov, Pavel Izmailov, Dmitrii Podoprikhin, Dmitry Vetrov and Andrew Gordon Wilson (https://github.com/timgaripov/dnn-mode-connectivity/)

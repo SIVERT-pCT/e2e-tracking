@@ -1,0 +1,63 @@
+{
+    "dataset": {
+        "cluster_threshold": 2,
+        "directory": "data/experiment_default",
+        "filter_secondaries": false,
+        "skip_tracker": false,
+        "test_events": [
+            50,
+            100,
+            150
+        ],
+        "test_files": {
+            "water_100": "data/water_100_10k.npz",
+            "water_150": "data/water_150_10k.npz",
+            "water_200": "data/water_200_10k.npz"
+        },
+        "train_events": 100,
+        "train_files": [
+            "data/water_100_100k.npz", 
+            "data/water_150_100k.npz", 
+            "data/water_200_100k.npz"
+        ],
+        "validation_events": 100,
+        "validation_files": [
+            "data/water_100_5k.npz", 
+            "data/water_150_5k.npz", 
+            "data/water_200_5k.npz"
+        ]
+    },
+    "transforms": {
+        "d_encoding": 128,
+        "scaling": 0.001,
+        "stage1_theta_dd": 0.4,
+        "stage1_theta_dt": 0.2,
+        "to_line_graph": true
+    },
+    "solver": {
+        "margin_alpha": 0.0,
+        "secondary_sensitive": false,
+        "solver_lambda": 25
+    },
+    "optimizer": {
+        "batch_size": 32,
+        "lr": 1e-3,
+        "patience": 20,
+        "factor": 0.5
+    },
+    "model": {
+        "edge_features": 128,
+        "hidden_size": 16,
+        "model_dir": "models/line_graph/pat_lambda_25",
+        "node_features": 8,
+        "line_graph": true,
+        "checkpoints": {
+            "checkpoint_dir": "models/line_graph/pat_lambda_25/checkpoints",
+            "checkpoint_freq": 100
+        }
+    },
+    "run": {
+        "num_runs": 5,
+        "num_steps": 10000
+    }
+}
